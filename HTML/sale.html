@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_sale.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a> <a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:4.3vw">Beatles For Sale</p>
+      <h2 class="date">December 4, 1964</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A1vANZV20H5B4Fk6yf7Ot9a"  width="100%" height="360px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2"> <img class = "please" style="height:9.5vw; margin-bottom:5px" src="../Images/SVG/sale.svg" alt="beatles for sale">
+      <p class="quote">‘I’m A Loser’ is me in my Dylan period, because the word ‘clown’ is in it. I objected to the word ‘clown’, because that was always artsy-fartsy, but Dylan had used it so I thought it was all right, and it rhymed with whatever I was doing.” - John Lennon</p>
+      <p class="text"> Recorded during the height of their fame Beatles for Sale was the group’s fourth album released in under two years. The album contained six covers and eight new tracks. After two full years of recorded and performing, the bands music began to take more somber themes like in “I’m a Loser” and “No Reply.” This was the first album in which the band attended mixing sessions. The art cover was photographed again by Robert Freedman, and in The Beatles Style they all wore the same black turtle neck attire. </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:rgba(48, 180, 187, 1.00); width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:rgba(48, 180, 187, 1.00);"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

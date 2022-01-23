@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_tour.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a> <a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:3.4vw">Magical Mystery Tour</p>
+      <h2 class="date">November 27, 1967</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A2BtE7qm1qzM80p9vLSiXkj" width="100%" height="360" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2"> <img class = "please" style="height:7vw" src="../Images/SVG/tour.svg" alt="yellow submarine">
+      <p class="quote"> “Magical Mystery Tour is one of my favourite albums, because it was so weird. ‘I Am The Walrus’ is also one of my favourite tracks – because I did it, of course, but also because it’s one of those that has enough little bitties going to keep you interested even a hundred years later.” - John Lennon</p>
+      <p class="text"> In wake of the death of Beatles Manager Brian Epstein, the band was for the first time without direction. They had decided to continue with The Magical Myster Tour a project they had started after Sgt. Pepper. McCartney often took on the role of manager, hoping to keep the band afloat during their time of mourning. The album was created along side a televsion special featuring the music from the album. The film, although slated by critics and the public, showed off their psychedelic experimentation. </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:rgba(48, 180, 187, 1.00); width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:rgba(48, 180, 187, 1.00);"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

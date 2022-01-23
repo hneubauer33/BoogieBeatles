@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_abbey.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a><a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:4.2vw">Abbey Road</p>
+      <h2 class="date">September 26, 1969</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A0ETFjACtuP2ADo6LFhL6HN" width="100%" height="360px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2"> <img class = "please" style="height: 8vw" src="../Images/SVG/abbey.svg" alt="abbey road">
+      <p class="quote">“The Beatles really could play music together when they weren’t uptight. And if I get a thing going, Ringo knows where to go. Like that. We’ve played together so long that it fits. That’s the only thing I sometimes miss is, is being able to just sort of blink or make a certain noise and I know they’ll all know where we’re going on an ad lib thing.” - John Lennon</p>
+      <p class="text"> Unknown to the band, Abbey Road would be their last recorded album. Named after the road they took to get to EMI studios, the cover art had not title nor the bands name on it. While their Apples records business was in turmoil and bickerings amongst the group increased, while in the studio their bond seemed strong. Songs like “Carry That Weight” and “She’s So Heavy” were about their failing business and the stress it put on the band. </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:rgba(48, 180, 187, 1.00); width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:rgba(48, 180, 187, 1.00);"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

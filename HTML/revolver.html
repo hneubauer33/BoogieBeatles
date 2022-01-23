@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_revolver.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px; background-image: url(../Images/SVG/revolver.svg); background-color: #30B4BB; background-repeat: no-repeat; background-size: cover">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a> <a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:4.5vw">Revolver</p>
+      <h2 class="date">August 5, 1966</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A3PRoXYsngSwjEQWR5PsHWR" width="100%" height="360px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2">
+      <p class="quote" style="margin-top: 7.4vw; background-color: rgba(0, 0, 0, 0.5);">“We were really starting to find ourselves in the studio. We were finding what we could do, just being the four of us and playing our instruments. The overdubbing got better, even though it was always pretty tricky because of the lack of tracks. The songs got more interesting, so with that the effects got more interesting.” - Ringo Starr</p>
+      <p class="text"style="background-color: rgba(0, 0, 0, 0.5)"> Revolver is often considered the Beatles best body of work, saying goodbye to the old Beatles and hello to an experimental group working together. The band had decided to stop touring leaving them amble time to explore in the studio. The album features orchestral instrumentation, backward recording and inspiration from indian music and childrens songs. The most innovative track on the album is “tomorrow never knows” which was an adaption of the book <i>Tibetan Book of the Dead.</i> </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:transparent; width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:transparent;"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

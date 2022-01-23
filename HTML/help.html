@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_help.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a> <a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:4.5vw">Help!</p>
+      <h2 class="date">August 6, 1965</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A0PT5m6hwPRrpBwIHVnvbFX"  width="100%" height="360px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2"> <img class = "please" style="height:10.5vw; margin-bottom:5px;" src="../Images/SVG/help.svg" alt="help!">
+      <p class="quote">“Paul, of course, had written his ‘Yesterday’; the most recorded song in history. What a guy!” - Ringo Starr</p>
+      <p class="text"> In Help! The Beatles start experimenting with new sounds and exploring their emotions. The album has influences of country and western, bluegrass, folk, classical and rock style. Lennon was beginning to dig deep into his own emotions, taking influences from Dylan while writing hits like “Ticket to Ride” and “You’ve got to hide your love away.” The album also includes the solo song Yesterday by Paul Mccartney. “Yesterday” is the most covered song of all time and has been performed an estimated 7 million times. For the photography, Freedman had the band pose in semaphore. Originally hoping they could spell out help, however, they ended up spelling ‘NUJV’ because it looked better. </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:rgba(48, 180, 187, 1.00); width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:rgba(48, 180, 187, 1.00);"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

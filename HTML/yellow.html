@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boogie With The Beatles</title>
+<link rel="icon" href="../Images/SVG/tab.svg">
+<link href="../CSS/Main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/cwm6pkt.css">
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
+<script src="nav_yellow.js"></script> 
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6DC5DD45A6942419388CE0334E0F48A");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.navigation();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="wrapper">
+  <div id = "header"> <a href="../index.html"><img class = "logo" src = "../Images/SVG/Logo.svg" alt="logo"></a> <a href="info.html"><img class="info" src="../Images/SVG/Information.svg" alt="information"></a> </div>
+  <div id="contianer">
+    <div class="col1">
+      <p class="title" style="font-size:4.0vw">Yellow Submarine</p>
+      <h2 class="date">January 17, 1969</h2>
+      <iframe src="https://open.spotify.com/embed?uri=spotify%3Aalbum%3A1gKZ5A1ndFqbcrWtW85cCy"  width="100%" height="360px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+    <div class="col2"> <img class = "please" style="height: 6vw" src="../Images/SVG/yellow.svg" alt="yellow submarine">
+      <p class="quote">“At the start, all four of us hoped for something more classic like Pinocchio or Snow White. I felt it lacked the ingenuity and the warmth and overall magic you associate with Disney. The end result was that the Yellow Submarine just didn’t draw me into it. Basically, I thought it was a lot of very clever sequences but nothing more” - Paul McCartney </p>
+      <p class="text"> Under contract with United Artists to make a fourth album, the band settled on an animated film with actors voices and Beatles music. “Yellow Submarine” written by McCartney and orignally on Revolver was always meant as a childrens song. “Hey Bulldog” goes back to the R&B riffs of earlier beatles work. The cover art of the Album was the same cartoon flyers to promote the movie. In the end the album was very little regarded by the band and more of a contractual obligation. </p>
+    </div>
+  </div>
+  <div id = "nav">
+    <div id="animation_container" style="background-color:rgba(48, 180, 187, 1.00); width:1547px; height:103px">
+      <canvas id="canvas" width="1547" height="103" style="position: absolute; display: block; background-color:rgba(48, 180, 187, 1.00);"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1547px; height:103px; position: absolute; left: 0px; top: 0px; display: block;"> </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
