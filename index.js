@@ -967,7 +967,7 @@ if (reversed == null) { reversed = false; }
 		this.please_button.addEventListener("click", fl_ClickToGoToWebPage_4);
 		
 		function fl_ClickToGoToWebPage_4() {
-			window.open("../BoogieBeatles/HTML/please.html", "_self");
+			window.open("../HTML/please.html", "_self");
 		}
 		
 		
