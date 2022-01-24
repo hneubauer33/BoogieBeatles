@@ -967,7 +967,7 @@ if (reversed == null) { reversed = false; }
 		this.please_button.addEventListener("click", fl_ClickToGoToWebPage_4);
 		
 		function fl_ClickToGoToWebPage_4() {
-			window.open("../HTML/please.html", "_self");
+			window.open("../BoogieBeatles/HTML/please.html", "_self");
 		}
 		
 		
@@ -1066,7 +1066,7 @@ if (reversed == null) { reversed = false; }
 		this.pepper_button.addEventListener("click", fl_ClickToGoToWebPage_12);
 		
 		function fl_ClickToGoToWebPage_12() {
-			window.open("pepper.html", "_self");
+			window.open("../BoogieBeatles/HTML/pepper.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1129,7 +1129,7 @@ if (reversed == null) { reversed = false; }
 		this.tour_button.addEventListener("click", fl_ClickToGoToWebPage_17);
 		
 		function fl_ClickToGoToWebPage_17() {
-			window.open("tour.html", "_self");
+			window.open("../BoogieBeatles/HTML/tour.html", "_self");
 		}
 		
 		this.tiktok_button.addEventListener("click", fl_ClickToGoToWebPage_18);
