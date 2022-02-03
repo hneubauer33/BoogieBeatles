@@ -967,7 +967,7 @@ if (reversed == null) { reversed = false; }
 		this.please_button.addEventListener("click", fl_ClickToGoToWebPage_4);
 		
 		function fl_ClickToGoToWebPage_4() {
-			window.open("../HTML/please.html", "_self");
+			window.open("HTML/please.html", "_self");
 		}
 		
 		
@@ -982,7 +982,7 @@ if (reversed == null) { reversed = false; }
 		this.with_button.addEventListener("click", fl_ClickToGoToWebPage_6);
 		
 		function fl_ClickToGoToWebPage_6() {
-			window.open("../BoogieBeatles/HTML/with.html", "_self");
+			window.open("HTML/with.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -996,7 +996,7 @@ if (reversed == null) { reversed = false; }
 		this.hard_button.addEventListener("click", fl_ClickToGoToWebPage_7);
 		
 		function fl_ClickToGoToWebPage_7() {
-			window.open("../BoogieBeatles/HTML/hard.html", "_self");
+			window.open("HTML/hard.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1010,7 +1010,7 @@ if (reversed == null) { reversed = false; }
 		this.sale_button.addEventListener("click", fl_ClickToGoToWebPage_8);
 		
 		function fl_ClickToGoToWebPage_8() {
-			window.open("../BoogieBeatles/HTML/sale.html", "_self");
+			window.open("HTML/sale.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1024,7 +1024,7 @@ if (reversed == null) { reversed = false; }
 		this.help_button.addEventListener("click", fl_ClickToGoToWebPage_9);
 		
 		function fl_ClickToGoToWebPage_9() {
-			window.open("../BoogieBeatles/HTML/help.html", "_self");
+			window.open("HTML/help.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1038,7 +1038,7 @@ if (reversed == null) { reversed = false; }
 		this.rubber_button.addEventListener("click", fl_ClickToGoToWebPage_10);
 		
 		function fl_ClickToGoToWebPage_10() {
-			window.open("../BoogieBeatles/HTML/rubber.html", "_self");
+			window.open("HTML/rubber.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1052,7 +1052,7 @@ if (reversed == null) { reversed = false; }
 		this.revolver_button.addEventListener("click", fl_ClickToGoToWebPage_11);
 		
 		function fl_ClickToGoToWebPage_11() {
-			window.open("../BoogieBeatles/HTML/revolver.html", "_self");
+			window.open("HTML/revolver.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1066,7 +1066,7 @@ if (reversed == null) { reversed = false; }
 		this.pepper_button.addEventListener("click", fl_ClickToGoToWebPage_12);
 		
 		function fl_ClickToGoToWebPage_12() {
-			window.open("../BoogieBeatles/HTML/pepper.html", "_self");
+			window.open("HTML/pepper.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1080,7 +1080,7 @@ if (reversed == null) { reversed = false; }
 		this.white_button.addEventListener("click", fl_ClickToGoToWebPage_13);
 		
 		function fl_ClickToGoToWebPage_13() {
-			window.open("../BoogieBeatles/HTML/white.html", "_self");
+			window.open("HTML/white.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1094,7 +1094,7 @@ if (reversed == null) { reversed = false; }
 		this.yellow_button.addEventListener("click", fl_ClickToGoToWebPage_14);
 		
 		function fl_ClickToGoToWebPage_14() {
-			window.open("../BoogieBeatles/HTML/yellow.html", "_self");
+			window.open("HTML/yellow.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1108,7 +1108,7 @@ if (reversed == null) { reversed = false; }
 		this.abbey_button.addEventListener("click", fl_ClickToGoToWebPage_15);
 		
 		function fl_ClickToGoToWebPage_15() {
-			window.open("../BoogieBeatles/HTML/abbey.html", "_self");
+			window.open("HTML/abbey.html", "_self");
 		}
 		
 		/* Click to Go to Web Page
@@ -1122,14 +1122,14 @@ if (reversed == null) { reversed = false; }
 		this.let_button.addEventListener("click", fl_ClickToGoToWebPage_16);
 		
 		function fl_ClickToGoToWebPage_16() {
-			window.open("../BoogieBeatles/HTML/let.html", "_self");
+			window.open("HTML/let.html", "_self");
 		}
 		
 		
 		this.tour_button.addEventListener("click", fl_ClickToGoToWebPage_17);
 		
 		function fl_ClickToGoToWebPage_17() {
-			window.open("../BoogieBeatles/HTML/tour.html", "_self");
+			window.open("HTML/tour.html", "_self");
 		}
 		
 		this.tiktok_button.addEventListener("click", fl_ClickToGoToWebPage_18);
